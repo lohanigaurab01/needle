@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+<main>
+    <!-- Container START -->
+    <div class="container">
+      <div class="row">
+  
+        <!-- Sidenav START -->
+        <div class="col-lg-3">
+  
+          <!-- Advanced filter responsive toggler START -->
+                  <!-- Divider -->
+                  <div class="d-flex align-items-center mb-4 d-lg-none">
+                      <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                          <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+              <span class="h6 mb-0 fw-bold d-lg-none ms-2">Settings</span>
+                      </button>
+                  </div>
+                  <!-- Advanced filter responsive toggler END -->
+  
+          <nav class="navbar navbar-light navbar-expand-lg mx-0">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+              <!-- Offcanvas header -->
+                          <div class="offcanvas-header">
+                              <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                          </div>
+  
+              <!-- Offcanvas body -->
+              <div class="offcanvas-body p-0">
+                <!-- Card START -->
+                <div class="card w-100">
+                  <!-- Card body START -->
+                  <div class="card-body">
+  
+                  <!-- Side Nav START -->
+                  <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0" role="tablist">
+                    <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
+                      <a class="nav-link d-flex mb-0 active" href="{% url "setting" %}" data-bs-toggle="tab" aria-selected="true" role="tab"><span>Account </span></a>
+                    </li>
+                    <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
+                      <a class="nav-link d-flex mb-0" href="{% url "change_password" %}"><span>Security </span></a>
+                    </li>
+                   
+                    </li>
+                  </ul>
+                  <!-- Side Nav END -->
+  
+                </div>
+            
+                </div>
+              <!-- Card END -->
+              </div>
+              <!-- Offcanvas body -->
+  
+              <!-- Helper link START -->
+              <ul class="nav small mt-4 justify-content-center lh-1">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "about" request.user.username %}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "setting" %}">Settings</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" target="_blank" href="#">Support </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" target="_blank" href="#">Docs </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Help</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Privacy &amp; terms</a>
+                </li>
+              </ul>
+              <!-- Helper link END -->
+              <!-- Copyright -->
+              <p class="small text-center mt-1">©2023 <a class="text-reset" target="_blank" href="https://www.gaurablohani.info.np/"> Gaurab Lohani </a></p>
+            </div>
+          </nav>
+        </div>
+        <!-- Sidenav END -->
+  
+          <!-- Main content START -->
+          <div class="col-lg-6 vstack gap-4">
+            <!-- Setting Tab content START -->
+            <div class="tab-content py-0 mb-0">
+  
+              <!-- Account setting tab START -->
+              <div class="tab-pane show active fade" id="nav-setting-tab-1" role="tabpanel">
+                <!-- Account settings START -->
+                <div class="card mb-4">
+                  
+                  <!-- Title START -->
+                  <div class="card-header border-0 pb-0">
+                    <h1 class="h5 card-title">Account Settings</h1>
+                    <p class="mb-0">Change Your Information</p>
+                  </div>
+                  <!-- Card header START -->
+                  <!-- Card body START -->
+                  <div class="card-body">
+                    <!-- Form settings START -->
+                    <form  class="row g-3" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                        <!-- First name -->
+                      <div class="col-sm-6 col-lg-4">
+                        {{ usersetting.first_name|as_crispy_field }}
+
+                      </div>
+                      <!-- Last name -->
+                      <div class="col-sm-6 col-lg-4">
+                        {{ usersetting.last_name|as_crispy_field }}
+
+                      </div>
+                      <!-- Additional name -->
+                     
+                      <!-- User name -->
+                      <div class="col-sm-6">
+                        {{ usersetting.username|as_crispy_field }}
+
+                      </div>
+                      <!-- Birthday -->
+                      <div class="col-lg-6">
+                        {{ userprofile.intro|as_crispy_field }}
+
+                      </div>
+                      <!-- Allow checkbox -->
+                      <div class="col-12">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="allowChecked" checked="">
+                          <label class="form-check-label" for="allowChecked">
+                            Allow anyone to add you to their team
+                          </label>
+                        </div>
+                      </div>
+                      <!-- Phone number -->
+                      <div class="col-sm-6"> 
+                        
+                        {{ userprofile.contact_number|as_crispy_field }}
+
+                      <!-- Add new number -->
+                        <!-- <a class="btn btn-sm btn-dashed rounded mt-2" href="#!"> <i class="bi bi-plus-circle-dotted me-1"></i>Add new phone number</a> -->
+                      </div>
+                      <!-- Phone number -->
+                      <div class="col-sm-6">
+                        {{ usersetting.email|as_crispy_field }}
+
+                        <!-- Add new email -->
+                        <!-- <a class="btn btn-sm btn-dashed rounded mt-2" href="#!"> <i class="bi bi-plus-circle-dotted me-1"></i>Add new email address</a> -->
+                      </div>
+                      <!-- Page information -->
+                      <div class="col-12">
+                        {{ userprofile.image|as_crispy_field }}
+
+                      </div>
+                      <div class="col-12">
+                        {{ userprofile.background_cover|as_crispy_field }}
+
+                      </div>
+                      
+                      <div class="col-12">
+                        {{ userprofile.current_password|as_crispy_field }}
+
+                      </div>
+                      <!-- Button  -->
+                      <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-sm btn-primary mb-0">Save changes</button>
+                      </div>
+                    </form>
+                    <!-- Settings END -->
+                  </div>
+                <!-- Card body END -->
+                </div>
+                <!-- Account settings END -->
+  
+  
+            </div>
+            <!-- Setting Tab content END -->
+          </div>
+  
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+  
+  </main>
+{% endblock body %}

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+<main>
+    <!-- Container START -->
+    <div class="container">
+      <div class="row">
+  
+        <!-- Sidenav START -->
+        <div class="col-lg-3">
+  
+          <!-- Advanced filter responsive toggler START -->
+                  <!-- Divider -->
+                  <div class="d-flex align-items-center mb-4 d-lg-none">
+                      <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                          <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+              <span class="h6 mb-0 fw-bold d-lg-none ms-2">User Login & Register Form</span>
+                      </button>
+                  </div>
+                  <!-- Advanced filter responsive toggler END -->
+  
+          <nav class="navbar navbar-light navbar-expand-lg mx-0">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+              <!-- Offcanvas header -->
+                          <div class="offcanvas-header">
+                              <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                          </div>
+  
+              <!-- Offcanvas body -->
+              <div class="offcanvas-body p-0">
+                <!-- Card START -->
+                <div class="card w-100">
+                  <!-- Card body START -->
+                  <div class="card-body">
+  
+                  <!-- Side Nav START -->
+                  <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0" role="tablist">
+                    <li class="nav-item"  role="presentation">
+                      <a class="nav-link d-flex mb-0 active" href="{% url "login" %}"> <span>Login </span></a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link d-flex mb-0 " href="{% url "register" %}"> <span>Register </span></a>
+                     
+                    </li>
+                   
+                  </ul>
+                  <!-- Side Nav END -->
+  
+                </div>
+               
+              
+                </div>
+              <!-- Card END -->
+              </div>
+          
+              <!-- Helper link END -->
+              <!-- Copyright -->
+              <p class="small text-center mt-1">©2023 <a class="text-reset" target="_blank" href="https://www.gaurablohani.info.np/"> Gaurab Lohani </a></p>
+            
+            </div>
+          </nav>
+        </div>
+        <!-- Sidenav END -->
+  
+          <!-- Main content START -->
+          <div class="col-lg-6 vstack gap-4">
+            <!-- Setting Tab content START -->
+            <div class="tab-content py-0 mb-0">
+  
+              <!-- Account setting tab START -->
+              <div class="tab-pane show active fade" id="nav-setting-tab-1" role="tabpanel">
+                <!-- Account settings START -->
+                <div class="card mb-4">
+                  
+        
+                </div>
+                <!-- Account settings END -->
+  
+                <!-- Change your password START -->
+                
+                <div class="card">
+                  <form method="POST" action='{% url "login" %}'>
+                    {% csrf_token %}
+                  <!-- Title START -->
+                  <div class="card-header border-0 pb-0">
+                    
+                    <h5 class="card-title">Login Form</h5>
+                    <p class="mb-0">Didn't Have an account <a href="{% url "register" %}">Signup</a></p>
+                  </div>
+                  <!-- Title START -->
+                  <div class="card-body">
+                    <!-- Settings START -->
+                    <form class="row g-3">
+                      <!-- Current password -->
+                      <div class="col-12">
+                        {{form|crispy}}
+                      </div>
+                    <a href="{% url "password_reset" %}"> <p class="mb-0">Reset Password</p></a>
+
+                      <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-primary mb-0">Login</button>
+                      </div>
+                    </form>
+                    <!-- Settings END -->
+                  </div>
+                </div>
+              </form>
+                <!-- Card END -->
+              </div>
+              <!-- Account setting tab END -->
+  
+          
+           
+         
+  
+            </div>
+            <!-- Setting Tab content END -->
+          </div>
+  
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+  
+  </main>
+{% endblock body %}

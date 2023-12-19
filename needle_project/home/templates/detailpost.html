@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block body %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="card">
+                <!-- Card header START -->
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-story me-2">
+                                <a href="#!"> <img class="avatar-img rounded-circle" src="{{object.author.userprofile.image.url}}" alt=""> </a>
+                            </div>
+                            <!-- Info -->
+                            <div>
+                                <div class="nav nav-divider">
+                                    <h6 class="nav-item card-title mb-0"> <a href="{% url 'userpost' object.author.username %}"> {{object.author.get_full_name}}</a></h6>
+                                </div>
+                                <p class="mb-0 small">{{object.time}}</p>
+                            </div>
+                        </div>
+                        <!-- Card feed action dropdown START -->
+                        <div class="dropdown">
+                            <a href="#" class="text-secondary btn btn-secondary-soft-hover py-1 px-2" id="cardFeedAction" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cardFeedAction">
+                              {% if post.author == request.user %}
+                              {% if post.is_deletable %}
+                         
+                              <li><a class="dropdown-item" href="{% url "updatepost" post.id %}"> <i
+                                    class="bi bi-bookmark fa-fw pe-2"></i>Update
+                                  post</a></li>
+                           
+                              <li><a class="dropdown-item" href="{% url "deletepost" post.id %}"> <i
+                                    class="bi bi-bookmark fa-fw pe-2"></i>Delete
+                                  post</a></li>
+                                  {% else %}
+                                  <li><a class="dropdown-item" href="#"> <i
+                                    class="bi bi-bookmark fa-fw pe-2"></i>Cannot delete this post</a></li>
+                              {% endif %}
+                            </ul>
+                            {% else %}
+                                  <li><a class="dropdown-item" href="#"> <i
+                                    class="bi bi-bookmark fa-fw pe-2"></i>Not Authorized</a></li>
+                            {% endif %}
+                                  
+                          </ul>
+                        </div>
+                        <!-- Card feed action dropdown END -->
+                    </div>
+                </div>
+                <!-- Card header END -->
+                <!-- Card body START -->
+                <div class="card-body">
+                    <p>{{object.content}}</p>
+                    <!-- Card img -->
+                    <img class="card-img" src="{{object.image.url}}">
+                    <!-- Feed react START -->
+                    <ul class="nav nav-stack py-3 small">
+                        <!-- ... -->
+                    </ul>
+                    <!-- Feed react END -->
+                    <!-- Add comment -->
+                    <div class="d-flex mb-3">
+                        <!-- ... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock body %}
