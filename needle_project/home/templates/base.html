@@ -111,20 +111,20 @@
 			<!-- Logo END -->
 
 			<!-- Responsive navbar toggler -->
-			<!--<button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
-			<!--	<span class="navbar-toggler-animation">-->
-			<!--		<span></span>-->
-			<!--		<span></span>-->
-			<!--		<span></span>-->
-			<!--	</span>-->
-			<!--</button>-->
-<button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-animation">
 					<span></span>
 					<span></span>
 					<span></span>
 				</span>
 			</button>
+<!--<button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--				<span class="navbar-toggler-animation">-->
+<!--					<span></span>-->
+<!--					<span></span>-->
+<!--					<span></span>-->
+<!--				</span>-->
+<!--			</button>-->
 			<!-- Main navbar START -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
@@ -147,21 +147,21 @@
 
 					<!-- Nav item 2 Pages -->
 					<li class="nav-item">
-						<a class="nav-link" href="#">My network</a>
+						<a class="nav-link" href="/createpost/">Create Post</a>
 					</li>
 
 					<!-- Nav item 3 Post -->
 					<li class="nav-item">
-						<a class="nav-link" href="#">My network</a>
+						<a class="nav-link" href="/auth/setting/">Setting</a>
 					</li>
 
 					<!-- Nav item 4 Mega menu -->
 					<li class="nav-item">
-						<a class="nav-link" href="#">My network</a>
+						<a class="nav-link" href="{% url 'userpost' request.user.username %}"> View Profile</a>
 					</li>
 				</ul>
 			</div>
-			<!-- Main navbar END -->
+
 
 			<!-- Nav right START -->
 			<ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
