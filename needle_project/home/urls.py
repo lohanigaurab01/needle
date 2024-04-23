@@ -10,5 +10,8 @@ urlpatterns = [
     path('<str:username>/about/', UserAboutView.as_view(), name='about'),
     path('<str:username>/post/<int:pk>/', DetailView.as_view(), name='detailpost'),
     path('<str:username>/', UserPostView.as_view(), name='userpost'),
+    path('<str:username>/like_post/<int:post_id>/', views.like_post, name='like_post'),
+
+
 
 ]
