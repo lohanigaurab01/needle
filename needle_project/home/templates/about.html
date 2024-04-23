@@ -8,11 +8,11 @@
     <!-- Container START -->
     <div class="container">
       <div class="row g-4">
-  
+
         <!-- Main content START -->
         <div class="col-lg-8 vstack gap-4">
           <!-- My profile START -->
-   
+
           <div class="card">
             <!-- Cover image -->
             <div class="h-200px rounded-top" style="background-image:url(assets/images/bg/05.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
@@ -22,7 +22,7 @@
                   <div>
                     <!-- Avatar -->
                     <div class="avatar avatar-xxl mt-n5 mb-3">
-            
+
                       <img class="avatar-img rounded-circle border border-whituserprofilee border-3" src="{{post.author.userprofile.image.url}}" alt="">
                     </div>
                   </div>
@@ -40,7 +40,7 @@
                 </div>
                 <!-- List profile -->
                 <ul class="list-inline mb-0 text-center text-sm-start mt-3 mt-sm-0">
-                 
+
                   <li class="list-inline-item"><i class="bi bi-calendar2-plus me-1"></i> Joined On {{request.user.date_joined|date:"F d, Y"}}</li>
                 </ul>
               </div>
@@ -50,14 +50,14 @@
                 <ul class="nav nav-bottom-line align-items-center justify-content-center justify-content-md-start mb-0 border-0">
                   <li class="nav-item"> <a class="nav-link " href="{% url "userpost" post.author.username %}"> Posts </a> </li>
                   <li class="nav-item"> <a class="nav-link active" href="{% url "about" post.author.username %}"> About </a> </li>
-              
+
                 </ul>
               </div>
             </div>
             <div class="col-lg-4">
-  
+
               <div class="row g-4">
-      
+
                 <!-- Card START -->
                 <div class="col-md-6 col-lg-12">
                   <div class="card">
@@ -67,11 +67,10 @@
                     </div>
                     <!-- Card body START -->
                     <div class="card-body position-relative pt-0">
-                      <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy.</p>
+                      <p>{{post.author.userprofile.intro}}</p>
                       <!-- Date time -->
                       <ul class="list-unstyled mt-3 mb-0">
-                        <li class="mb-2"> <i class="bi bi-calendar-date fa-fw pe-1"></i> Born: <strong> October 20, 1990 </strong> </li>
-                        <li class="mb-2"> <i class="bi bi-heart fa-fw pe-1"></i> Status: <strong> Single </strong> </li>
+
                         <li> <i class="bi bi-envelope fa-fw pe-1"></i> Email: <strong> {{post.author.email}} </strong> </li>
                       </ul>
                     </div>
@@ -80,7 +79,7 @@
                 </div>
                 <!-- Card END -->
               </div>
-      
+
             </div>
           </main>
 
@@ -89,12 +88,12 @@
               file END -->
             {% endif %}
               {% endfor %}
-              
-     
+
+
             <!-- Share feed START -->
 
 
-  
-  
- 
+
+
+
 {% endblock body %}
