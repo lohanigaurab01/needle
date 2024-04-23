@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0f848znb7#7j672#&@97(k=w$oys*@1g1!^mqb1+$(&=fe1x0f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['needle.pythonanywhere.com']
 
 
 # Application definition
@@ -121,7 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT='staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -136,8 +139,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'gaurablohani01@gmail.com'
-EMAIL_HOST_PASSWORD ='nxcw weop qdmb buzy'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD =''
 
-# EMAIL_HOST_USER = 'gaurablohani00@gmail.com'
-# EMAIL_HOST_PASSWORD = 'tddk oyio uzii qxez'
+
+
